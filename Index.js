@@ -3,9 +3,9 @@ btn.forEach(element=>element.addEventListener('click',playerSelection));
 let Pcount=0;
 let Ccount=0;
 let count=0;
+let setbutton=false;
 function playerSelection(e)
 {
-    console.log(e.target.innerText);
     let ps = e.target.innerText;
     playRound(ps);
 }
@@ -31,7 +31,6 @@ function computerPlay(){
 
 function playRound(p) {
     let c = computerPlay();
-    console.log(c);
     c=c.toUpperCase();
     p=p.toUpperCase();
 
@@ -75,18 +74,26 @@ function playRound(p) {
 
 }
 
-function display(count,Pcount,Ccount)
+function display(c,pc,cc)
 { 
     if(count<=5)
     {
-        document.getElementById('count').textContent = "Round Count : " + count;
-        document.getElementById('Pcount').textContent = "Player Win Count : " + Pcount;
-        document.getElementById('Ccount').textContent = "Computer Win Count : " + Ccount;
+        document.getElementById('count').textContent = "Round Count : " + c;
+        document.getElementById('Pcount').textContent = "Player Win Count : " + pc;
+        document.getElementById('Ccount').textContent = "Computer Win Count : " + cc;
     }
-    else
+    if(count===5 && setbutton===false)
     {
-
+            const reset = document.createElement("button");
+            reset.innerText = "RESET";
+            document.getElementById("resetbutton").append(reset);
+            setbutton = true;
     }
-    
-
 }
+let resetbutton = document.querySelector('#resetbutton');
+resetbutton.addEventListener('click',()=>{
+    count=0;
+    Pcount=0;
+    Ccount=0;
+    display(count,Pcount,Ccount);
+});
