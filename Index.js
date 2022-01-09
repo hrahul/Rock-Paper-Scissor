@@ -1,6 +1,8 @@
 const btn = document.querySelectorAll('.btn');
 btn.forEach(element=>element.addEventListener('click',playerSelection));
-
+let Pcount=0;
+let Ccount=0;
+let count=0;
 function playerSelection(e)
 {
     console.log(e.target.innerText);
@@ -33,54 +35,58 @@ function playRound(p) {
     c=c.toUpperCase();
     p=p.toUpperCase();
 
+    count++;
+
     if(c=="ROCK")
     {
-        if(p=="ROCK")
+       
+        if(p=="PAPER")
         {
-            display("TIE");
-        }
-        else if(p=="PAPER")
-        {
-            display("Player Won");
+            Pcount++;
         }
         else if(p=="SCISSOR")
         {
-            display("Computer Won");
+            Ccount++;
         }
     }
     else if(c=="PAPER")
     {
-        if(p=="PAPER")
+        if(p=="SCISSOR")
         {
-            display("TIE");
-        }
-        else if(p=="SCISSOR")
-        {
-            display("Player Won");
+            Pcount++;
         }
         else if(p=="ROCK")
-        {
-            display("Computer Won");
+        {   
+            Ccount++;
         }
     }
     else if(c=="SCISSOR")
     {
-        if(p=="SCISSOR")
+        if(p=="ROCK")
         {
-            display("TIE");
-        }
-        else if(p=="ROCK")
-        {
-            display("Player Won");
+            Pcount++;
         }
         else if(p=="PAPER")
         {
-            display("Computer Won");
+            Ccount++;
         }
     }
+    display(count,Pcount,Ccount);
+
 }
 
-function display(str)
-{
-    document.getElementById('Output').textContent = str;
+function display(count,Pcount,Ccount)
+{ 
+    if(count<=5)
+    {
+        document.getElementById('count').textContent = "Round Count : " + count;
+        document.getElementById('Pcount').textContent = "Player Win Count : " + Pcount;
+        document.getElementById('Ccount').textContent = "Computer Win Count : " + Ccount;
+    }
+    else
+    {
+
+    }
+    
+
 }
