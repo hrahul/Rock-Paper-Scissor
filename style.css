@@ -1,0 +1,29 @@
+body{
+    height: 90vh;
+}
+h1{
+    text-align: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.btn{
+    display: flex;
+    border-radius: 5px;
+    color: black;
+    background-color:cadetblue;
+    border: solid black;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+#Output{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

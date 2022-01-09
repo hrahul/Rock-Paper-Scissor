@@ -1,3 +1,15 @@
+const btn = document.querySelectorAll('.btn');
+btn.forEach(element=>element.addEventListener('click',playerSelection));
+
+function playerSelection(e)
+{
+    console.log(e.target.innerText);
+    let ps = e.target.innerText;
+    playRound(ps);
+}
+
+
+
 function computerPlay(){
    let s = Math.floor(Math.random() * 3);
    if(s==0)
@@ -15,9 +27,7 @@ function computerPlay(){
 
 }
 
-function playRound() {
-    let p = document.getElementById("t").value;
-    console.log(p);
+function playRound(p) {
     let c = computerPlay();
     console.log(c);
     c=c.toUpperCase();
@@ -27,45 +37,50 @@ function playRound() {
     {
         if(p=="ROCK")
         {
-            console.log("TIE");
+            display("TIE");
         }
         else if(p=="PAPER")
         {
-            console.log("Player Won");
+            display("Player Won");
         }
         else if(p=="SCISSOR")
         {
-            console.log("Computer Won");
+            display("Computer Won");
         }
     }
     else if(c=="PAPER")
     {
         if(p=="PAPER")
         {
-            console.log("TIE");
+            display("TIE");
         }
         else if(p=="SCISSOR")
         {
-            console.log("Player Won");
+            display("Player Won");
         }
         else if(p=="ROCK")
         {
-            console.log("Computer Won");
+            display("Computer Won");
         }
     }
     else if(c=="SCISSOR")
     {
         if(p=="SCISSOR")
         {
-            console.log("TIE");
+            display("TIE");
         }
         else if(p=="ROCK")
         {
-            console.log("Player Won");
+            display("Player Won");
         }
         else if(p=="PAPER")
         {
-            console.log("Computer Won");
+            display("Computer Won");
         }
     }
+}
+
+function display(str)
+{
+    document.getElementById('Output').textContent = str;
 }
