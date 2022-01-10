@@ -90,8 +90,8 @@ function display(c,pc,cc)
             setbutton = true;
     }
 }
-let resetbutton = document.querySelector('#resetbutton');
-resetbutton.addEventListener('click',()=>{
+    let resetbutton = document.querySelector('#resetbutton');
+    resetbutton.addEventListener('click',()=>{
     count=0;
     Pcount=0;
     Ccount=0;
